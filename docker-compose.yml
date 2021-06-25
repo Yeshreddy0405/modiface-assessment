@@ -1,3 +1,5 @@
+version: "3.4"
+
 x-app: &default-app
   build:
     context: "."
@@ -25,6 +27,9 @@ services:
           memory: "${DOCKER_POSTGRES_MEMORY:-0}"
     env_file:
       - ".env"
+    environment:
+      POSTGRES_USER: "hello"
+      POSTGRES_PASSWORD: "password"
     image: "postgres:13.3"
     restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
     stop_grace_period: "3s"

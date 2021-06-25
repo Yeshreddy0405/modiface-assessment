@@ -179,6 +179,7 @@ resource "aws_instance" "webapp" {
                 sudo curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
                 sudo chmod +x /usr/local/bin/docker-compose
                 cd /home/ubuntu
+                sudo chown -R ubuntu:ubuntu helloflask
                 git clone https://github.com/Yeshreddy0405/modiface-assessment.git helloflask
                 cd helloflask
                 cp .env.example .env
